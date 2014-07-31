@@ -7,7 +7,7 @@ module.exports = function(connection){
 		
 		connection.query('SELECT * from photos order by id ', function(err, rows, fields) {
 		if (err) throw err;
-			res.render('index', { title: 'GloboJS',  data: rows});
+			res.render('index', { title: 'SlideShowJS',  data: rows});
 		});
 
 	});
