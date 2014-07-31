@@ -1,0 +1,41 @@
+
+      <% include ../header %>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Lista de Imagens</div>
+        <div class="panel-body">
+        
+      	<table class="table">
+      		<thead>
+      			<tr>
+	      			<th>ID</th>
+	      			<th>Imagem</th>
+	      			<th>Título</th>
+	      			<th>Descricao</th>
+              <th>Opções</th>
+      			</tr>
+      		</thead>
+      		<tbody>
+      			<% data.forEach(function(photo) { %>  
+	      			<tr>
+		      			<td><%- photo.id %></td>
+		      			<td><img src="/slides/<%- photo.path %>" width="100" /></td>
+		      			<td><%- photo.title %></td>
+		      			<td><%- photo.description %></td>
+                <td>
+                <a href="/admin/edit/<%- photo.id %>" class="btn btn-default btn-sm btn-block" alt="Editar Imagem">Alterar
+                </a>
+                <a href="/admin/destroy/<%- photo.id %>" class="btn btn-danger btn-sm btn-block" alt="Editar Imagem">Apagar
+                </a>
+               </td>
+	      			</tr>
+      			<% }) %>
+      		</tbody>
+      	</table><p>
+      	<a href="/admin/new" class="btn btn-info pull-right">Nova Imagem</a>
+      </p>
+      </div>
+    </div>
+
+        
+<% include ../footer %>

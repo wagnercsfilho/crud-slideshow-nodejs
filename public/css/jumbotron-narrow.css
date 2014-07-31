@@ -1,0 +1,175 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+#slideshow{
+  position: relative;
+}
+
+#slideshow #slideshowWindow {
+  width:700px;
+  height:400px;
+  margin:0;
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+
+#slideshow #slideshowWindow .slide {
+  margin:0;
+  padding:0;
+  width:700px; 
+  height:400px;
+  position:relative;
+}
+
+#slideshow #slideshowWindow .slide img {
+  width:700px; 
+}
+
+#slideshow #slideshowWindow .slide .slideText {
+  position:absolute;
+  top:270px;
+  left:0px;
+  width:100%;
+  height:130px;
+  background-color:rgba(0,0,0,0.3);
+  margin:0;
+  padding:0;
+  color:#ffffff;
+  font-family:Myriad Pro, Arial, Helvetica, sans-serif;
+}
+
+#slideshow #slideshowWindow .slide .slideText a:link, 
+#slideshow #slideshowWindow .slide .slideText a:visited {
+  color:#ffffff;
+  text-decoration:none;
+}
+
+#slideshow #slideshowWindow .slide .slideText h2, 
+#slideshow #slideshowWindow .slide .slideText p {
+  margin:10px 0 0 10px;
+  padding:0;
+}
+
+.slidenav {
+  display:block;
+  text-indent:-10000px;
+  position:absolute;
+  cursor:pointer;
+}
+
+#leftNav {
+  top:160px;
+  left:-100px;
+
+  width: 0px;
+  height: 0px;
+
+    border-style: solid;
+  border-width: 50px 86.6px 50px 0;
+  border-color: transparent #3d75b0 transparent transparent;
+
+  z-index:999;
+}
+
+#rightNav {
+  top:160px;
+  right:-100px;
+  width: 0px;
+  height: 0px;
+
+    border-style: solid;
+  border-width: 50px 0 50px 86.6px;
+  border-color: transparent transparent transparent #3d75b0;
+
+  z-index:999;
+}
+
+.sl-count {
+  position:absolute;
+  left: 50%;
+  bottom: -2%;
+  width: 0px;
+  height: 0px;
+  border-color: transparent transparent transparent #3d75b0;
+  width: auto;
+  font-weight: bold;
+  z-index:1000;
+}

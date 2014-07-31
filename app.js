@@ -4,7 +4,9 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-mysql      = require('mysql');
+var methodOverride = require('method-override');
+
+mysql = require('mysql');
 
 // Application initialization
 var connection = mysql.createConnection({
@@ -21,17 +23,28 @@ connection.query('CREATE DATABASE IF NOT EXISTS SlideShow', function (err) {
         connection.query('CREATE TABLE IF NOT EXISTS photos('
             + 'id INT NOT NULL AUTO_INCREMENT,'
             + 'PRIMARY KEY(id),'
-            + 'title VARCHAR(50)'
-            + 'description VARCHAR(255)'
+            + 'title VARCHAR(50),'
+            + 'description VARCHAR(255),'
             + 'path VARCHAR(255)'
             +  ')', function (err) {
                 if (err) throw err;
+                connection.query('DELETE from photos', 
+                function (err) {
+                    if (err) throw err;
+                        connection.query("INSERT INTO photos (id, title, description, path) VALUES"
+                                        +"(1, 'SERA MESMO?', 'Cora confirma para Cristina que Zé é o pai da jovem', 'slide01.jpg'),"
+                                        +"(2, 'NA GRAVAÇÃO DO ESTRELAS', 'Angélica se encanta com filhas recém-nascidas de sertanejos ', 'slide02.jpg'),"
+                                        +"(7, 'MEU PEDACINHO DE CHÃO', 'Elenco grava casamento do último capítulo: veja fotos!', '86f44240-1881-11e4-80e6-db8d0d8f9d52_slide03.jpg');", 
+                            function (err) {
+                            if (err) throw err;
+                        });
+                });
             });
     });
 });
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./routes/index')(connection);
+var admin = require('./routes/admin')(connection);
 
 var app = express();
 
@@ -44,10 +57,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/admin', admin);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -78,6 +92,10 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
+});
+
+var server = app.listen(3000, function() {
+    console.log('Listening on port %d', server.address().port);
 });
 
 

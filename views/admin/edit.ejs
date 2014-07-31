@@ -1,0 +1,32 @@
+
+      <% include ../header %>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Editar Imagem</div>
+        <div class="panel-body">
+        
+      	<form role="form" method="POST" action="/admin/update?_method=PUT" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="title">Título</label>
+            <input type="text" value="<%- data[0].title %>" class="form-control" id="title" name="title" placeholder="Título">
+          </div>
+          <div class="form-group">
+            <label for="description">Descrição</label>
+            <textarea name="description" id="description" class="form-control" rows="3" placeholder="Descrição"><%- data[0].description %></textarea>
+          </div>
+          <div class="form-group">
+            <label for="image">Imagem</label>
+            <input type="file" id="image" name="image">
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <a href="/admin" type="button" class="btn btn-default">Voltar</a>
+          <input type="hidden" name="id" value="<%- data[0].id %>">
+          <input type="hidden" name="imageold" value="<%- data[0].path %>">
+        </form>
+
+      </div>
+    </div>
+
+
+   
+<% include ../footer %>

@@ -13,6 +13,9 @@
     "express": "~4.2.0",
     "morgan": "~1.0.0",
     "mysql": "^2.4.1",
-    "static-favicon": "~1.0.0"
+    "static-favicon": "~1.0.0",
+    "connect-multiparty": "^1.1.0",
+    "node-uuid": "^1.4.1",
+    "method-override": "^2.1.2"
   }
 }

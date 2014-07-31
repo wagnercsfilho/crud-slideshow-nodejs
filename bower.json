@@ -1,0 +1,9 @@
+{
+	"name": "SlideShowJS",
+	"version": "1.0.0",
+	"dependencies": {
+		"jquery": "latest",
+		"angular": "latest",
+		"angular-ui-router": "latest"
+	}
+}
